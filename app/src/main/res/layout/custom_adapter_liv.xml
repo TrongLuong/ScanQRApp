@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_margin="16dp"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_vertical"
+
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/imageCustom">
+    </ImageView>
+    <LinearLayout
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtMSSVCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MSSV:">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ten nv:"
+            android:id="@+id/txtHoTenCustom">
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginRight="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+         >
+
+        <TextView
+
+            android:id="@+id/txtNgayHocCustom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="Trang thai">
+
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <CheckBox
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:id="@+id/cbXoaCustom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </CheckBox>
+
+    </LinearLayout>
+
+
+</LinearLayout>

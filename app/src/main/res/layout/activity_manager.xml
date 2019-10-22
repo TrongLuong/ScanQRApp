@@ -1,0 +1,119 @@
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@color/nen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="32dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="32dp"
+            android:layout_marginRight="10dp"
+            android:text="GT">
+
+        </TextView>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_weight="9"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtMSSVCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MSSV">
+
+            </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Họ tên"
+                android:id="@+id/txtHoTenCustom">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/txtNgayHocCustom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+
+                android:text="Ngày học">
+
+            </TextView>
+
+        </LinearLayout>
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_marginLeft="15dp"
+                android:text="X"
+                android:textColor="#FF0909"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btndeleteMA">
+
+            </Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="add student"
+            android:textAlignment="center"
+            android:id="@+id/btnAddMA">
+
+        </Button>
+        <Button
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Load student"
+            android:textAlignment="center"
+            android:id="@+id/btnCapNhatMA">
+
+        </Button>
+
+
+
+    </LinearLayout>
+
+
+    <ListView
+
+        android:descendantFocusability="blocksDescendants"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/livStudentMA">
+
+    </ListView>
+
+
+
+</LinearLayout>
