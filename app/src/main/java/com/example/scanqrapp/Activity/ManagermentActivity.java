@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -78,16 +79,18 @@ public class ManagermentActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void dsSudent() {
-        dataStudent.addStudent(new Student(16038781, "Trọng", 1998, 1, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16038782, "Trinh", 1998, 0, "Go Vap", 1));
-        dataStudent.addStudent(new Student(16038721, "Minh", 1998, 1, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16028925, "Linh", 1998, 0, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16025883, "Qui", 1998, 0, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16087925, "Nhung", 1998, 0, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16069752, "Hang", 1998, 0, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16075249, "Loi", 1998, 1, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16038662, "Trọng", 1998, 1, "Tay ninh", 1));
-        dataStudent.addStudent(new Student(16925333, "Trinh", 1998, 0, "Go Vap", 1));
+        dataStudent.addStudent(new Student(16038781, "Lương Nguyễn Đức Trọng", 1998, 1, "Tây Ninh", 1));
+        dataStudent.addStudent(new Student(16038782, "Nguyễn Tú Trinh", 1998, 0, "Gò Vấp", 1));
+        dataStudent.addStudent(new Student(16038721, "Lê Minh Long", 1998, 1, "Bình Dương", 1));
+        dataStudent.addStudent(new Student(16028925, "Trương Duy Linh", 1998, 0, "Đà Lạt", 1));
+        dataStudent.addStudent(new Student(16025883, "Dương Quí Phi", 1998, 0, "TPHCM", 1));
+        dataStudent.addStudent(new Student(16087925, "Trần Hồng Nhung", 1998, 0, "Cà Mau", 1));
+        dataStudent.addStudent(new Student(16069752, "Lê Thanh Hằng", 1998, 0, "Tây Nguyên", 1));
+        dataStudent.addStudent(new Student(16075249, "Nguyễn Đức Long", 1998, 1, "Huế", 1));
+        dataStudent.addStudent(new Student(16038662, "Lương Minh Trang", 1998, 0, "Hà Nội", 1));
+        dataStudent.addStudent(new Student(16925333, "Hà Anh", 1998, 0, "Bình Phước", 1));
+        dataStudent.addStudent(new Student(16925330, "Hà Anh Tuấn", 1998, 1, "Đồng Nai", 1));
+        dataStudent.addStudent(new Student(16925338, "Kiều Vũ Đại", 1998, 1, "Vũ Đại", 1));
 
     }
 
@@ -135,7 +138,6 @@ public class ManagermentActivity extends AppCompatActivity implements View.OnCli
             case R.id.btnAddMA:
                 Intent intentAD = new Intent(this, AddStudenActivity.class);
                 startActivity(intentAD);
-
                 break;
 
 
@@ -247,6 +249,38 @@ public class ManagermentActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_option,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itQLSV:
+                Intent iqlsv = new Intent(this, ManagermentActivity.class);
+                startActivity(iqlsv);
+                break;
+            case R.id.itThemSV:
+                Intent ithem = new Intent(this, AddStudenActivity.class);
+                startActivity(ithem);
+                break;
+            case R.id.itQuetSV:
+                Intent iquet = new Intent(this, ScanQRActivity.class);
+                startActivity(iquet);
+                break;
+            case R.id.itTimSV:
+                Intent iTim = new Intent(this, SearchActivity.class);
+                startActivity(iTim);
+                break;
+            case R.id.itTC:
+                Intent iTc = new Intent(this, MainActivity.class);
+                startActivity(iTc);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void xemMaQR() {

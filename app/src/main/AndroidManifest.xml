@@ -14,8 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activity.ScanQRActivity"
-            android:screenOrientation="fullSensor"
-            tools:replace="screenOrientation"/>
+             />
         <activity android:name=".Activity.SearchActivity" />
         <activity android:name=".Activity.AddStudenActivity" />
         <activity android:name=".Activity.ManagermentActivity" />

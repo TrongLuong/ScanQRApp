@@ -1,9 +1,12 @@
 package com.example.scanqrapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -32,7 +35,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSearch.setOnClickListener(this);
         btnScan.setOnClickListener(this);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_option,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itQLSV:
+                Intent iqlsv = new Intent(this, ManagermentActivity.class);
+                startActivity(iqlsv);
+                break;
+            case R.id.itThemSV:
+                Intent ithem = new Intent(this, AddStudenActivity.class);
+                startActivity(ithem);
+                break;
+            case R.id.itQuetSV:
+                Intent iquet = new Intent(this, ScanQRActivity.class);
+                startActivity(iquet);
+                break;
+            case R.id.itTimSV:
+                Intent iTim = new Intent(this, SearchActivity.class);
+                startActivity(iTim);
+                break;
+            case R.id.itTC:
+                Intent iTc = new Intent(this, MainActivity.class);
+                startActivity(iTc);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()){

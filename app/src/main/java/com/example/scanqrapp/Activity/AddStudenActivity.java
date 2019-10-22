@@ -1,8 +1,12 @@
 package com.example.scanqrapp.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +72,38 @@ public class AddStudenActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_option,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.itQLSV:
+                Intent iqlsv = new Intent(this, ManagermentActivity.class);
+                startActivity(iqlsv);
+                break;
+            case R.id.itThemSV:
+                Intent ithem = new Intent(this, AddStudenActivity.class);
+                startActivity(ithem);
+                break;
+            case R.id.itQuetSV:
+                Intent iquet = new Intent(this, ScanQRActivity.class);
+                startActivity(iquet);
+                break;
+            case R.id.itTimSV:
+                Intent iTim = new Intent(this, SearchActivity.class);
+                startActivity(iTim);
+                break;
+            case R.id.itTC:
+                Intent iTc = new Intent(this, MainActivity.class);
+                startActivity(iTc);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private Student createStudent() {
         Student students;
@@ -94,7 +130,7 @@ public class AddStudenActivity extends AppCompatActivity {
 
 
     public void createQR() {
-        String mssv = edtMSSV.getText().toString().trim();
+        int mssv = Integer.parseInt(edtMSSV.getText().toString().trim());
         String ht = edtHoTen.getText().toString().trim();
         String gt;
         if (radioGroupGT.getCheckedRadioButtonId() == R.id.radioNuAD) {

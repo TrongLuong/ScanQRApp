@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/itTC"
+        android:title="Trang chủ"
+        android:icon="@drawable/search">
+
+    </item>
+    <item android:id="@+id/itQLSV"
+        android:title="Quản lý sinh viên"
+        android:icon="@drawable/manager">
+    </item>
+
+    <item android:id="@+id/itThemSV"
+        android:title="Thêm sinh viên"
+        android:icon="@drawable/add">
+
+    </item>
+
+    <item android:id="@+id/itQuetSV"
+        android:title="Quét mã QR"
+        android:icon="@drawable/qrcode">
+
+    </item>
+
+    <item android:id="@+id/itTimSV"
+        android:title="Tìm kiếm nhanh"
+        android:icon="@drawable/search">
+
+    </item>
+
+
+</menu>
