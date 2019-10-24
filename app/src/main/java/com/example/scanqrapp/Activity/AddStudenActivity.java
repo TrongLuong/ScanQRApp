@@ -86,20 +86,22 @@ public class AddStudenActivity extends AppCompatActivity {
                 startActivity(iqlsv);
                 break;
             case R.id.itThemSV:
-                Intent ithem = new Intent(this, AddStudenActivity.class);
-                startActivity(ithem);
+
                 break;
             case R.id.itQuetSV:
                 Intent iquet = new Intent(this, ScanQRActivity.class);
                 startActivity(iquet);
+                finish();
                 break;
             case R.id.itTimSV:
                 Intent iTim = new Intent(this, SearchActivity.class);
                 startActivity(iTim);
+                finish();
                 break;
             case R.id.itTC:
                 Intent iTc = new Intent(this, MainActivity.class);
                 startActivity(iTc);
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);

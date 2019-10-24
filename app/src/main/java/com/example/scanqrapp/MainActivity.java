@@ -47,22 +47,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.itQLSV:
                 Intent iqlsv = new Intent(this, ManagermentActivity.class);
                 startActivity(iqlsv);
+
                 break;
             case R.id.itThemSV:
                 Intent ithem = new Intent(this, AddStudenActivity.class);
                 startActivity(ithem);
+
                 break;
             case R.id.itQuetSV:
                 Intent iquet = new Intent(this, ScanQRActivity.class);
                 startActivity(iquet);
+
                 break;
             case R.id.itTimSV:
                 Intent iTim = new Intent(this, SearchActivity.class);
                 startActivity(iTim);
+
                 break;
             case R.id.itTC:
-                Intent iTc = new Intent(this, MainActivity.class);
-                startActivity(iTc);
+
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -32,7 +32,7 @@ import org.json.JSONObject;
 
 public class ScanQRActivity extends AppCompatActivity  {
 
-    private Button btnSave, btnScanQR, btnClose;
+    private Button   btnScanQR, btnClose;
     private TextView txtMSSV, txtHoTen, txtGT, txtTT, txtNS,txtDiaChi;
     private ImageView imgQR;
     DataStudent dataStudent;
@@ -48,7 +48,7 @@ public class ScanQRActivity extends AppCompatActivity  {
         txtNS = findViewById(R.id.txtNamSinhSC);
         txtDiaChi = findViewById(R.id.txtDiaChiSC);
         imgQR = findViewById(R.id.imgQRSC);
-        btnSave = findViewById(R.id.btnSaveSC);
+
         btnClose = findViewById(R.id.btnCloseSC);
 
 
@@ -66,26 +66,12 @@ public class ScanQRActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 integrator.setPrompt("Quét mã QR sinh viên");
                 integrator.initiateScan();
-                integrator.setOrientationLocked(false);
-                btnSave.setEnabled(true);
-                btnScanQR.setEnabled(false);
-            }
-        });
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Student student = dataStudent.getStudentByMSSV(Integer.parseInt(txtMSSV.getText().toString()));
-                int sndh = student.getSoNgayDiHoc();
-                if (txtTT.getText().toString().equals("Có")) {
-                    student.setSoNgayDiHoc(sndh + 1);
-                    dataStudent.UpdateSoNgayHoc(student);
+                integrator.setOrientationLocked(true);
 
-                }
-                Toast.makeText(ScanQRActivity.this,"Có đi học hôm nay!", Toast.LENGTH_SHORT).show();
-                btnSave.setEnabled(false);
-                btnScanQR.setEnabled(true);
+
             }
         });
+
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,22 +92,25 @@ public class ScanQRActivity extends AppCompatActivity  {
             case R.id.itQLSV:
                 Intent iqlsv = new Intent(this, ManagermentActivity.class);
                 startActivity(iqlsv);
+
                 break;
             case R.id.itThemSV:
                 Intent ithem = new Intent(this, AddStudenActivity.class);
                 startActivity(ithem);
+                finish();
                 break;
             case R.id.itQuetSV:
-                Intent iquet = new Intent(this, ScanQRActivity.class);
-                startActivity(iquet);
+
                 break;
             case R.id.itTimSV:
                 Intent iTim = new Intent(this, SearchActivity.class);
                 startActivity(iTim);
+                finish();
                 break;
             case R.id.itTC:
                 Intent iTc = new Intent(this, MainActivity.class);
                 startActivity(iTc);
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -135,8 +124,7 @@ public class ScanQRActivity extends AppCompatActivity  {
 
             if (result.getContents() == null) {
                 Toast.makeText(this, "Không tìm thấy kết quả", Toast.LENGTH_LONG).show();
-                btnScanQR.setEnabled(true);
-                btnSave.setEnabled(false);
+
 
             } else {
                 try {
@@ -169,7 +157,14 @@ public class ScanQRActivity extends AppCompatActivity  {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    Student student = dataStudent.getStudentByMSSV(Integer.parseInt(txtMSSV.getText().toString()));
+                    int sndh = student.getSoNgayDiHoc();
+                    if (txtTT.getText().toString().equals("Có")) {
+                        student.setSoNgayDiHoc(sndh + 1);
+                        dataStudent.UpdateSoNgayHoc(student);
 
+                    }
+                    Toast.makeText(ScanQRActivity.this,student.getHoTen()+" có đi học hôm nay!", Toast.LENGTH_SHORT).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
