@@ -56,6 +56,7 @@ public class AddStudenActivity extends AppCompatActivity {
                 Student student = createStudent();
                 if (student != null) {
                     dataStudent.addStudent(student);
+
                     Toast.makeText(AddStudenActivity.this, "Thêm thành công!", Toast.LENGTH_SHORT).show();
                     createQR();
                 } else {

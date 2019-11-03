@@ -37,9 +37,9 @@ public class DataStudent extends SQLiteOpenHelper {
 
     }
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+    public void onCreate(SQLiteDatabase sqLiteDatabase)  {
         String sqlQuery = "CREATE TABLE "+TABLE_NAME +" (" +
-                MSSV+" integer primary key, "+
+                MSSV+" integer primary key unique, "+
                 HOTEN + " TEXT, "+
                 NAMSINH +" integer, "+
                 GIOITINH+" integer," +
@@ -93,7 +93,13 @@ public class DataStudent extends SQLiteOpenHelper {
         values.put(SONGAYDIHOC, student.getSoNgayDiHoc());
 
         //Neu de null thi khi value bang null thi loi
-        db.insert(TABLE_NAME, null, values);
+        if(  db.insert(TABLE_NAME, null, values)==-1){
+            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(context, "Sucessfully", Toast.LENGTH_SHORT).show();
+
+        }
         db.close();
     }
 
@@ -137,9 +143,6 @@ public class DataStudent extends SQLiteOpenHelper {
 
             return student;
 
-
-
-
     }
 
 
@@ -173,7 +176,7 @@ public class DataStudent extends SQLiteOpenHelper {
     }
 
     /*
- Get Count Student in Table Student
+    Get Count Student in Table Student
   */
     public int getStudentsCount() {
         String countQuery = "SELECT  * FROM " + TABLE_NAME;
